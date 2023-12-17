@@ -3,7 +3,7 @@ import random
 
 
 def cat_mems():
-    bot = telebot.TeleBot('6497869293:AAFs13eB2Pvc3HUPcxG8vXCviqPd_S7sOww');
+    bot = telebot.TeleBot('token');
 
     @bot.message_handler(content_types=['text'])
     def hello_help(message):
