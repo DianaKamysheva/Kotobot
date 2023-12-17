@@ -9,8 +9,7 @@ def cat_mems():
     def hello_help(message):
         try:
             if message.text == ("Привет") or message.text == ("/start"):
-                bot.send_message(message.from_user.id, "Доброе время суток, чем могу помочь?")
-                bot.send_message(message.from_user.id, "Введите команду /help для просмотра доступных команд")
+                bot.send_message(message.from_user.id, "Доброе время суток, введите команду /help для просмотра доступных команд")  )
 
             elif message.text == "/help":
                 bot.send_message(message.from_user.id, "Введи команду /searchpic чтобы найти картинку с котами")
