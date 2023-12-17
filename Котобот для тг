@@ -1,0 +1,70 @@
+import telebot
+import random
+
+
+def cat_mems():
+    bot = telebot.TeleBot('6497869293:AAFs13eB2Pvc3HUPcxG8vXCviqPd_S7sOww');
+
+    @bot.message_handler(content_types=['text'])
+    def hello_help(message):
+        try:
+            if message.text == ("Привет") or message.text == ("/start"):
+                bot.send_message(message.from_user.id, "Доброе время суток, чем могу помочь?")
+                bot.send_message(message.from_user.id, "Введите команду /help для просмотра доступных команд")
+
+            elif message.text == "/help":
+                bot.send_message(message.from_user.id, "Введи команду /searchpic чтобы найти картинку с котами")
+                bot.send_message(message.from_user.id, "Введи команду /searchmems чтобы получить мем с котами")
+
+            elif message.text == "/searchpic":
+                rand = random.randint(1, 12)
+                bot.send_message(message.chat.id, "Вот картинка")
+                bot.send_photo(message.chat.id, photo=open(f'piccat{rand}.jpg', 'rb'))
+
+            elif message.text == "/searchmems":
+                rand = random.randint(1, 10)
+                bot.send_message(message.chat.id, "Вот мем с котом :)) ")
+                bot.send_photo(message.chat.id, photo=open(f'memcat{rand}.jpg', 'rb'))
+
+            else:
+                bot.send_message(message.from_user.id, "Я не понимаю данный запрос *_* ")
+
+        except Exception as ex:
+            print(ex)
+
+    bot.polling()
+
+
+print('Принтуем')
+cat_mems()
+print('Стоп')
+
+memcat = {
+    1: 'memcat1.jpg',
+    2: 'memcat2.jpg',
+    3: 'memcat3.jpg',
+    4: 'memcat4.jpg',
+    5: 'memcat5.jpg',
+    6: 'memcat6.jpg',
+    7: 'memcat7.png',
+    8: 'memcat8.png',
+    9: 'memcat9.jpg',
+    10: 'memcat10.jpg'
+}
+
+piccat = {
+    1: 'piccat1.jpg',
+    2: 'piccat2.jpg',
+    3: 'piccat3.jpg',
+    4: 'piccat4.jpg',
+    5: 'piccat5.jpg',
+    6: 'piccat6.jpg',
+    7: 'piccat7.jpg',
+    8: 'piccat8.jpg',
+    9: 'piccat9.jpg',
+    10: 'piccat10.jpg',
+    11: 'piccat11.jpg',
+    12: 'piccat12.jpg'
+}
+
+cat_mems()
